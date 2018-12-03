@@ -3802,6 +3802,51 @@ select mobile from user where id between 1 and 8;     /*从数据库user表中�
                   <stringProp name="variableNames">mobile</stringProp>
                 </JDBCSampler>
                 <hashTree/>
+                <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="【行动计划】JDBC request" enabled="true">
+                  <stringProp name="dataSource">iber_php</stringProp>
+                  <stringProp name="query">/*select uuid from user where mobile=&quot;12608523691&quot;;*/
+/*select mobile from user where uuid=&quot;${uid}&quot;;*/
+select mobile from user where id between 1 and 8;     /*从数据库user表中拿出了id为1到8的值作为待办事项的标题名称，来新建待办*/
+/*将${mobile_1}传入&quot;添加待办-循环控制器&quot;可实现待办的多次添加*/</stringProp>
+                  <stringProp name="queryArguments"></stringProp>
+                  <stringProp name="queryArgumentsTypes"></stringProp>
+                  <stringProp name="queryTimeout"></stringProp>
+                  <stringProp name="queryType">Select Statement</stringProp>
+                  <stringProp name="resultSetHandler">Store as String</stringProp>
+                  <stringProp name="resultVariable"></stringProp>
+                  <stringProp name="variableNames">mobile</stringProp>
+                </JDBCSampler>
+                <hashTree/>
+                <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="【行动计划】JDBC request" enabled="true">
+                  <stringProp name="dataSource">iber_php</stringProp>
+                  <stringProp name="query">/*select uuid from user where mobile=&quot;12608523691&quot;;*/
+/*select mobile from user where uuid=&quot;${uid}&quot;;*/
+select mobile from user where id between 1 and 8;     /*从数据库user表中拿出了id为1到8的值作为待办事项的标题名称，来新建待办*/
+/*将${mobile_1}传入&quot;添加待办-循环控制器&quot;可实现待办的多次添加*/</stringProp>
+                  <stringProp name="queryArguments"></stringProp>
+                  <stringProp name="queryArgumentsTypes"></stringProp>
+                  <stringProp name="queryTimeout"></stringProp>
+                  <stringProp name="queryType">Select Statement</stringProp>
+                  <stringProp name="resultSetHandler">Store as String</stringProp>
+                  <stringProp name="resultVariable"></stringProp>
+                  <stringProp name="variableNames">mobile</stringProp>
+                </JDBCSampler>
+                <hashTree/>
+                <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="【行动计划】JDBC request" enabled="true">
+                  <stringProp name="dataSource">iber_php</stringProp>
+                  <stringProp name="query">/*select uuid from user where mobile=&quot;12608523691&quot;;*/
+/*select mobile from user where uuid=&quot;${uid}&quot;;*/
+select mobile from user where id between 1 and 8;     /*从数据库user表中拿出了id为1到8的值作为待办事项的标题名称，来新建待办*/
+/*将${mobile_1}传入&quot;添加待办-循环控制器&quot;可实现待办的多次添加*/</stringProp>
+                  <stringProp name="queryArguments"></stringProp>
+                  <stringProp name="queryArgumentsTypes"></stringProp>
+                  <stringProp name="queryTimeout"></stringProp>
+                  <stringProp name="queryType">Select Statement</stringProp>
+                  <stringProp name="resultSetHandler">Store as String</stringProp>
+                  <stringProp name="resultVariable"></stringProp>
+                  <stringProp name="variableNames">mobile</stringProp>
+                </JDBCSampler>
+                <hashTree/>
                 <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户自定义变量" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="id" elementType="Argument">
