@@ -6932,7 +6932,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="搜索" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="搜索" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【搜索】全局搜索 /v2/search/global" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
