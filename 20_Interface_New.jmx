@@ -7370,13 +7370,51 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             </collectionProp>
           </Arguments>
           <hashTree/>
-          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="JDBC Request" enabled="true">
-            <stringProp name="dataSource"></stringProp>
+          <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="计数器" enabled="true">
+            <stringProp name="CounterConfig.start">1</stringProp>
+            <stringProp name="CounterConfig.end"></stringProp>
+            <stringProp name="CounterConfig.incr">1</stringProp>
+            <stringProp name="CounterConfig.name">index</stringProp>
+            <stringProp name="CounterConfig.format">0</stringProp>
+            <boolProp name="CounterConfig.per_user">false</boolProp>
+          </CounterConfig>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Get_YMD_JDBC Request" enabled="true">
+            <stringProp name="dataSource">iber_php</stringProp>
             <stringProp name="queryType">Select Statement</stringProp>
-            <stringProp name="query"></stringProp>
+            <stringProp name="query">/*select * from user where mobile= &quot;12608523692&quot;;*/
+select curdate();
+</stringProp>
             <stringProp name="queryArguments"></stringProp>
             <stringProp name="queryArgumentsTypes"></stringProp>
-            <stringProp name="variableNames"></stringProp>
+            <stringProp name="variableNames">Get_YMD</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+            <stringProp name="TestPlan.comments">获取当前系统的年月日</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Get_YM_JDBC Request" enabled="true">
+            <stringProp name="dataSource">iber_php</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">/*获取当前系统的年月*/
+select DATE_FORMAT(now(),&apos;%Y-%m&apos;);</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">Get_YM</stringProp>
+            <stringProp name="resultVariable"></stringProp>
+            <stringProp name="queryTimeout"></stringProp>
+            <stringProp name="resultSetHandler">Store as String</stringProp>
+          </JDBCSampler>
+          <hashTree/>
+          <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Get_YMD-HM_JDBC Request" enabled="true">
+            <stringProp name="dataSource">iber_php</stringProp>
+            <stringProp name="queryType">Select Statement</stringProp>
+            <stringProp name="query">/*获取当前系统时间：年月日 时分*/
+select DATE_FORMAT(now(),&apos;%Y-%m-%d %h:%m&apos;);</stringProp>
+            <stringProp name="queryArguments"></stringProp>
+            <stringProp name="queryArgumentsTypes"></stringProp>
+            <stringProp name="variableNames">Get_YMD-HM</stringProp>
             <stringProp name="resultVariable"></stringProp>
             <stringProp name="queryTimeout"></stringProp>
             <stringProp name="resultSetHandler">Store as String</stringProp>
@@ -7453,7 +7491,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
                   <elementProp name="todo_start" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">todo_start</stringProp>
-                    <stringProp name="Argument.value">2019-01-22</stringProp>
+                    <stringProp name="Argument.value">${__V(Get_YMD_${index})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -7519,7 +7557,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
                   <elementProp name="time" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">time</stringProp>
-                    <stringProp name="Argument.value">2019-01</stringProp>
+                    <stringProp name="Argument.value">${__V(Get_YM_${index})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -7577,7 +7615,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
                   <elementProp name="day" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">day</stringProp>
-                    <stringProp name="Argument.value">2019-01-22</stringProp>
+                    <stringProp name="Argument.value">${__V(Get_YMD_${index})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -7651,7 +7689,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
                   <elementProp name="todo_start" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">todo_start</stringProp>
-                    <stringProp name="Argument.value">2019-01-22</stringProp>
+                    <stringProp name="Argument.value">${__V(Get_YMD_${index})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -7807,7 +7845,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
                   <elementProp name="todo_start" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">todo_start</stringProp>
-                    <stringProp name="Argument.value">2019-01-22 12:00</stringProp>
+                    <stringProp name="Argument.value">${__V(Get_YMD-HM_${index})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -7873,7 +7911,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
                   <elementProp name="time" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">time</stringProp>
-                    <stringProp name="Argument.value">2019-01</stringProp>
+                    <stringProp name="Argument.value">${__V(Get_YM_${index})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -7952,7 +7990,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
                   <elementProp name="todo_start" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">todo_start</stringProp>
-                    <stringProp name="Argument.value">2019-01-22 12:00</stringProp>
+                    <stringProp name="Argument.value">${__V(Get_YMD-HM_${index})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -7994,7 +8032,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
                   <elementProp name="day" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">day</stringProp>
-                    <stringProp name="Argument.value">2019-01-22</stringProp>
+                    <stringProp name="Argument.value">${__V(Get_YMD_${index})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -8046,7 +8084,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
                   <elementProp name="day" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">day</stringProp>
-                    <stringProp name="Argument.value">2019-01-22</stringProp>
+                    <stringProp name="Argument.value">${__V(Get_YMD_${index})}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
@@ -8094,6 +8132,22 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
           <boolProp name="displayJMeterVariables">true</boolProp>
           <boolProp name="displaySystemProperties">false</boolProp>
         </DebugSampler>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="JDBC Connection Configuration" enabled="true">
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="checkQuery"></stringProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="dataSource">iber_php</stringProp>
+          <stringProp name="dbUrl">jdbc:mysql://rm-wz94zg82ebbpi665czo.mysql.rds.aliyuncs.com:3306/iber2_admin?zeroDateTimeBehavior=CONVERT_TO_NULL</stringProp>
+          <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="password">cLz1xV07KrQUzCDxVU5kNRedP7lRDRQy</stringProp>
+          <stringProp name="poolMax">0</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <stringProp name="username">iber_php</stringProp>
+        </JDBCDataSource>
         <hashTree/>
         <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
@@ -11657,6 +11711,27 @@ a¡&gt;^ºp&#x92;´|&#x92;m(:]nåC&#x8c;y&#x1e;&#xc;=&#xe;&#x18;&#x90;;ìUkHU@&#
               <stringProp name="Authorization.url">https://user.jpush.cn/v1/user/</stringProp>
               <stringProp name="Authorization.username">22091184129</stringProp>
               <stringProp name="Authorization.password">21d249a3211e9074fa320ed6cef4afa1</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">https://p66-quota.icloud.com/quotaservice/external/ios/11299179303/refreshOfferDetails</stringProp>
+              <stringProp name="Authorization.username">11299179303</stringProp>
+              <stringProp name="Authorization.password">EAABAAAABLwIAAAAAFvf2pwRDmdzLmljbG91ZC5hdXRovQBcumna/lZcsFIN+OFdH/PFoiHqojo712X/eXSwKkVmNe6T1Gucpn6x10nxuZz7ohyAPgMHsLgN02f6TNG0Bo91Ia4ckTfVZcZ4YoFzfBAyh7Wd6awqltbjqWeyeRR/HM5cIbn7V/tBGKTG/EDLtxaINe6X8w==</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">https://p66-quota.icloud.com/quotaservice/external/ios/11299179303/fetchOffers</stringProp>
+              <stringProp name="Authorization.username">11299179303</stringProp>
+              <stringProp name="Authorization.password">EAABAAAABLwIAAAAAFvf2pwRDmdzLmljbG91ZC5hdXRovQBcumna/lZcsFIN+OFdH/PFoiHqojo712X/eXSwKkVmNe6T1Gucpn6x10nxuZz7ohyAPgMHsLgN02f6TNG0Bo91Ia4ckTfVZcZ4YoFzfBAyh7Wd6awqltbjqWeyeRR/HM5cIbn7V/tBGKTG/EDLtxaINe6X8w==</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">https://p66-quota.icloud.com/quotaservice/external/ios/11299179303/updateOffer</stringProp>
+              <stringProp name="Authorization.username">11299179303</stringProp>
+              <stringProp name="Authorization.password">EAABAAAABLwIAAAAAFvf2pwRDmdzLmljbG91ZC5hdXRovQBcumna/lZcsFIN+OFdH/PFoiHqojo712X/eXSwKkVmNe6T1Gucpn6x10nxuZz7ohyAPgMHsLgN02f6TNG0Bo91Ia4ckTfVZcZ4YoFzfBAyh7Wd6awqltbjqWeyeRR/HM5cIbn7V/tBGKTG/EDLtxaINe6X8w==</stringProp>
               <stringProp name="Authorization.domain"></stringProp>
               <stringProp name="Authorization.realm"></stringProp>
             </elementProp>
@@ -53589,6 +53664,942 @@ g`BJûÀA&#x15;­&#x89;ÊB&#x1d;Ãõ&#x2;B&#x12;&#x17;&#x8;&#x5;2&#x13;	u
               <elementProp name="Accept" elementType="Header">
                 <stringProp name="Header.name">Accept</stringProp>
                 <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="473 /clls/wloc" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="en_US&#x0;&#x13;com.apple.locationd&#x0;&#xc;11.4.1.15G77&#x0;&#x0;&#x0;&#x1;&#x0;&#x0;&#x0;&#x18;&#x12;&#x12;&#xa;&#x10;9e:ae:d3:90:f3:d&#x18;&#x0; d" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">en_US&#x0;&#x13;com.apple.locationd&#x0;&#xc;11.4.1.15G77&#x0;&#x0;&#x0;&#x1;&#x0;&#x0;&#x0;&#x18;&#x12;&#x12;
+&#x10;9e:ae:d3:90:f3:d&#x18;&#x0; d</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">gs-loc.apple.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/clls/wloc</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-us</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">br, gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">locationd/2245.0.41 CFNetwork/902.2 Darwin/17.7.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="474 /1/143465/v1/112/293/1125000_2935000.gz" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">cl5.apple.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/1/143465/v1/112/293/1125000_2935000.gz</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-us</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">br, gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">locationd/2245.0.41 CFNetwork/902.2 Darwin/17.7.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="475 /quotaservice/external/ios/11299179303/refreshOfferDetails" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;ck_hw_id&quot; : &quot;ALL&quot;,&#xd;
+  &quot;notificationId&quot; : &quot;1daa3d3c-c6a8-4e52-86b4-053df9bea739&quot;,&#xd;
+  &quot;useWlanTerm&quot; : &quot;true&quot;,&#xd;
+  &quot;event&quot; : &quot;quota_alert&quot;,&#xd;
+  &quot;dsid&quot; : &quot;11299179303&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">p66-quota.icloud.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/quotaservice/external/ios/11299179303/refreshOfferDetails</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="X-Apple-ADSID" elementType="Header">
+                <stringProp name="Header.name">X-Apple-ADSID</stringProp>
+                <stringProp name="Header.value">001732-08-c2bf1d73-b22e-4f61-961c-fd1403e8d512</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">zh-tw</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-MD-RINFO" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-MD-RINFO</stringProp>
+                <stringProp name="Header.value">17106176</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-MD" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-MD</stringProp>
+                <stringProp name="Header.value">AAAABQAAABDSsu5hrdr7W4aUFLtE3LuIAAAAAw==</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-TimeZone" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-TimeZone</stringProp>
+                <stringProp name="Header.value">GMT+8</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-MD-M" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-MD-M</stringProp>
+                <stringProp name="Header.value">hXLzNxANgC22imOQ1lSQuNDswNmfsQKzmkSMow8KRvmJvDpONq24Ek+dlX4PulAhuIT1ttjAakv26IE0</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-Locale" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-Locale</stringProp>
+                <stringProp name="Header.value">zh-Hant_CN</stringProp>
+              </elementProp>
+              <elementProp name="X-MMe-Country" elementType="Header">
+                <stringProp name="Header.name">X-MMe-Country</stringProp>
+                <stringProp name="Header.value">CN</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-Client-Time" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-Client-Time</stringProp>
+                <stringProp name="Header.value">2019-01-22T04:02:53Z</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="X-Mme-Device-Id" elementType="Header">
+                <stringProp name="Header.name">X-Mme-Device-Id</stringProp>
+                <stringProp name="Header.value">0b588283552a26f5117ead2f23394fc690d16058</stringProp>
+              </elementProp>
+              <elementProp name="X-MMe-Timezone" elementType="Header">
+                <stringProp name="Header.name">X-MMe-Timezone</stringProp>
+                <stringProp name="Header.value">GMT+8</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-Storage-Include-BackupOffer" elementType="Header">
+                <stringProp name="Header.name">X-Apple-Storage-Include-BackupOffer</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="X-MMe-Client-Info" elementType="Header">
+                <stringProp name="Header.name">X-MMe-Client-Info</stringProp>
+                <stringProp name="Header.value">&lt;iPhone10,3&gt; &lt;iPhone OS;11.4.1;15G77&gt; &lt;com.apple.AuthKit/1 (com.apple.ind/113)&gt;</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">br, gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-Cloud-Bkp-Id" elementType="Header">
+                <stringProp name="Header.name">X-Apple-Cloud-Bkp-Id</stringProp>
+                <stringProp name="Header.value">978E6904BB3605B19D7F8CD7BC54A3F7CC76CDC5B437F5FBC6D929F197685194</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">ind/113 CFNetwork/902.2 Darwin/17.7.0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="476 /assets/com_apple_MobileAsset_MobileIdentityService_DenyList/com_apple_MobileAsset_MobileIdentityService_DenyList.xml" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">mesu.apple.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/assets/com_apple_MobileAsset_MobileIdentityService_DenyList/com_apple_MobileAsset_MobileIdentityService_DenyList.xml</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">zh-tw</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">br, gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">MobileAsset/1.1</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="477 /report/2/xp_coreos_securebackup" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="{&quot;postTime&quot;:1548130409000,&quot;events&quot;:[{&quot;eventTime&quot;:1548130409000,&quot;topic&quot;:&quot;xp_coreos_securebackup&quot;,&quot;com.apple.icdp.keychainBackedUpCnt&quot;:1,&quot;eventType&quot;:&quot;sbdEvent&quot;,&quot;uuid&quot;:&quot;176B3C10-1CB8-4460-A911-C2C43609E5B9&quot;}]}" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">{&quot;postTime&quot;:1548130409000,&quot;events&quot;:[{&quot;eventTime&quot;:1548130409000,&quot;topic&quot;:&quot;xp_coreos_securebackup&quot;,&quot;com.apple.icdp.keychainBackedUpCnt&quot;:1,&quot;eventType&quot;:&quot;sbdEvent&quot;,&quot;uuid&quot;:&quot;176B3C10-1CB8-4460-A911-C2C43609E5B9&quot;}]}</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">xp.apple.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/report/2/xp_coreos_securebackup</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">zh-tw</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">br, gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">com.apple.sbd/297.60.1 CFNetwork/902.2 Darwin/17.7.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="478 /quotaservice/external/ios/11299179303/fetchOffers" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;ck_hw_id&quot; : &quot;ALL&quot;,&#xd;
+  &quot;iCPLEnabled&quot; : &quot;false&quot;,&#xd;
+  &quot;useWlanTerm&quot; : &quot;true&quot;,&#xd;
+  &quot;event&quot; : &quot;quota_alert&quot;,&#xd;
+  &quot;dsid&quot; : &quot;11299179303&quot;,&#xd;
+  &quot;optimizeEnabled&quot; : &quot;false&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">p66-quota.icloud.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/quotaservice/external/ios/11299179303/fetchOffers</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="X-Apple-ADSID" elementType="Header">
+                <stringProp name="Header.name">X-Apple-ADSID</stringProp>
+                <stringProp name="Header.value">001732-08-c2bf1d73-b22e-4f61-961c-fd1403e8d512</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">zh-tw</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-MD-RINFO" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-MD-RINFO</stringProp>
+                <stringProp name="Header.value">17106176</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-MD" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-MD</stringProp>
+                <stringProp name="Header.value">AAAABQAAABA0wr/SPTp0u36oD74xzX58AAAAAw==</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-TimeZone" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-TimeZone</stringProp>
+                <stringProp name="Header.value">GMT+8</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-MD-M" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-MD-M</stringProp>
+                <stringProp name="Header.value">hXLzNxANgC22imOQ1lSQuNDswNmfsQKzmkSMow8KRvmJvDpONq24Ek+dlX4PulAhuIT1ttjAakv26IE0</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-Locale" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-Locale</stringProp>
+                <stringProp name="Header.value">zh-Hant_CN</stringProp>
+              </elementProp>
+              <elementProp name="X-MMe-Country" elementType="Header">
+                <stringProp name="Header.name">X-MMe-Country</stringProp>
+                <stringProp name="Header.value">CN</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-Client-Time" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-Client-Time</stringProp>
+                <stringProp name="Header.value">2019-01-22T04:13:45Z</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="X-Mme-Device-Id" elementType="Header">
+                <stringProp name="Header.name">X-Mme-Device-Id</stringProp>
+                <stringProp name="Header.value">0b588283552a26f5117ead2f23394fc690d16058</stringProp>
+              </elementProp>
+              <elementProp name="X-MMe-Timezone" elementType="Header">
+                <stringProp name="Header.name">X-MMe-Timezone</stringProp>
+                <stringProp name="Header.value">GMT+8</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-Storage-Include-BackupOffer" elementType="Header">
+                <stringProp name="Header.name">X-Apple-Storage-Include-BackupOffer</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="X-MMe-Client-Info" elementType="Header">
+                <stringProp name="Header.name">X-MMe-Client-Info</stringProp>
+                <stringProp name="Header.value">&lt;iPhone10,3&gt; &lt;iPhone OS;11.4.1;15G77&gt; &lt;com.apple.AuthKit/1 (com.apple.ind/113)&gt;</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">br, gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-Cloud-Bkp-Id" elementType="Header">
+                <stringProp name="Header.name">X-Apple-Cloud-Bkp-Id</stringProp>
+                <stringProp name="Header.value">978E6904BB3605B19D7F8CD7BC54A3F7CC76CDC5B437F5FBC6D929F197685194</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">ind/113 CFNetwork/902.2 Darwin/17.7.0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="479 /quotaservice/external/ios/11299179303/refreshOfferDetails" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;dsid&quot; : &quot;11299179303&quot;,&#xd;
+  &quot;event&quot; : &quot;quota_alert&quot;,&#xd;
+  &quot;offerId&quot; : &quot;U3RvcmFnZV9VcGdyYWRlU3RvcmFnZV9JbnN1ZmZpY2llbnRfUEFJRA==&quot;,&#xd;
+  &quot;ck_hw_id&quot; : &quot;ALL&quot;,&#xd;
+  &quot;iCPLEnabled&quot; : &quot;false&quot;,&#xd;
+  &quot;optimizeEnabled&quot; : &quot;false&quot;,&#xd;
+  &quot;useWlanTerm&quot; : &quot;true&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">p66-quota.icloud.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/quotaservice/external/ios/11299179303/refreshOfferDetails</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="X-Apple-ADSID" elementType="Header">
+                <stringProp name="Header.name">X-Apple-ADSID</stringProp>
+                <stringProp name="Header.value">001732-08-c2bf1d73-b22e-4f61-961c-fd1403e8d512</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">zh-tw</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-MD-RINFO" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-MD-RINFO</stringProp>
+                <stringProp name="Header.value">17106176</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-MD" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-MD</stringProp>
+                <stringProp name="Header.value">AAAABQAAABA0wr/SPTp0u36oD74xzX58AAAAAw==</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-TimeZone" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-TimeZone</stringProp>
+                <stringProp name="Header.value">GMT+8</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-MD-M" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-MD-M</stringProp>
+                <stringProp name="Header.value">hXLzNxANgC22imOQ1lSQuNDswNmfsQKzmkSMow8KRvmJvDpONq24Ek+dlX4PulAhuIT1ttjAakv26IE0</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-Locale" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-Locale</stringProp>
+                <stringProp name="Header.value">zh-Hant_CN</stringProp>
+              </elementProp>
+              <elementProp name="X-MMe-Country" elementType="Header">
+                <stringProp name="Header.name">X-MMe-Country</stringProp>
+                <stringProp name="Header.value">CN</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-Client-Time" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-Client-Time</stringProp>
+                <stringProp name="Header.value">2019-01-22T04:13:46Z</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="X-Mme-Device-Id" elementType="Header">
+                <stringProp name="Header.name">X-Mme-Device-Id</stringProp>
+                <stringProp name="Header.value">0b588283552a26f5117ead2f23394fc690d16058</stringProp>
+              </elementProp>
+              <elementProp name="X-MMe-Timezone" elementType="Header">
+                <stringProp name="Header.name">X-MMe-Timezone</stringProp>
+                <stringProp name="Header.value">GMT+8</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-Storage-Include-BackupOffer" elementType="Header">
+                <stringProp name="Header.name">X-Apple-Storage-Include-BackupOffer</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="X-MMe-Client-Info" elementType="Header">
+                <stringProp name="Header.name">X-MMe-Client-Info</stringProp>
+                <stringProp name="Header.value">&lt;iPhone10,3&gt; &lt;iPhone OS;11.4.1;15G77&gt; &lt;com.apple.AuthKit/1 (com.apple.ind/113)&gt;</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">br, gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-Cloud-Bkp-Id" elementType="Header">
+                <stringProp name="Header.name">X-Apple-Cloud-Bkp-Id</stringProp>
+                <stringProp name="Header.value">978E6904BB3605B19D7F8CD7BC54A3F7CC76CDC5B437F5FBC6D929F197685194</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">ind/113 CFNetwork/902.2 Darwin/17.7.0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="480 /quotaservice/external/ios/11299179303/updateOffer" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;btnId&quot; : &quot;teardown&quot;,&#xd;
+  &quot;dsid&quot; : &quot;11299179303&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">p66-quota.icloud.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/quotaservice/external/ios/11299179303/updateOffer</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="X-Apple-ADSID" elementType="Header">
+                <stringProp name="Header.name">X-Apple-ADSID</stringProp>
+                <stringProp name="Header.value">001732-08-c2bf1d73-b22e-4f61-961c-fd1403e8d512</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">zh-tw</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-MD-RINFO" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-MD-RINFO</stringProp>
+                <stringProp name="Header.value">17106176</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-MD" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-MD</stringProp>
+                <stringProp name="Header.value">AAAABQAAABA0wr/SPTp0u36oD74xzX58AAAAAw==</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-TimeZone" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-TimeZone</stringProp>
+                <stringProp name="Header.value">GMT+8</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-MD-M" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-MD-M</stringProp>
+                <stringProp name="Header.value">hXLzNxANgC22imOQ1lSQuNDswNmfsQKzmkSMow8KRvmJvDpONq24Ek+dlX4PulAhuIT1ttjAakv26IE0</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-Locale" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-Locale</stringProp>
+                <stringProp name="Header.value">zh-Hant_CN</stringProp>
+              </elementProp>
+              <elementProp name="X-MMe-Country" elementType="Header">
+                <stringProp name="Header.name">X-MMe-Country</stringProp>
+                <stringProp name="Header.value">CN</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-I-Client-Time" elementType="Header">
+                <stringProp name="Header.name">X-Apple-I-Client-Time</stringProp>
+                <stringProp name="Header.value">2019-01-22T04:13:47Z</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="X-Mme-Device-Id" elementType="Header">
+                <stringProp name="Header.name">X-Mme-Device-Id</stringProp>
+                <stringProp name="Header.value">0b588283552a26f5117ead2f23394fc690d16058</stringProp>
+              </elementProp>
+              <elementProp name="X-MMe-Timezone" elementType="Header">
+                <stringProp name="Header.name">X-MMe-Timezone</stringProp>
+                <stringProp name="Header.value">GMT+8</stringProp>
+              </elementProp>
+              <elementProp name="X-MMe-Client-Info" elementType="Header">
+                <stringProp name="Header.name">X-MMe-Client-Info</stringProp>
+                <stringProp name="Header.value">&lt;iPhone10,3&gt; &lt;iPhone OS;11.4.1;15G77&gt; &lt;com.apple.AuthKit/1 (com.apple.ind/113)&gt;</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">br, gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="X-Apple-Cloud-Bkp-Id" elementType="Header">
+                <stringProp name="Header.name">X-Apple-Cloud-Bkp-Id</stringProp>
+                <stringProp name="Header.value">978E6904BB3605B19D7F8CD7BC54A3F7CC76CDC5B437F5FBC6D929F197685194</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">ind/113 CFNetwork/902.2 Darwin/17.7.0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="481 /hvr/v3/use" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="zh-Hant-CN_CN&#x0;&#xe;com.apple.geod&#x0;&#xc;11.4.1.15G77&#x0;&#x4;NONE&#x0;&#x0;&#x3;ù&#x0;&#x0;&#x1;Ö&#xa;ð&#x1;²&#x6;å&#x1;&#xa;&#x1f;&#x98;&#x6;­&#x2;ê&#x12;&#x18;&#xa;&#xe;com.apple.geod&#x12;&#x3;1.0&#x1a;&#x1;1&#xa;&#x13;&#x98;&#x6;&#x92;&#x3;&#x92;&#x19;&#xc;&#xa;&#xa;zh-Hant-CN&#xa;5&#x98;&#x6;Ù&#x4;Ê%.&#xa;&#x16;&#x8;Þë&#x9d;¬é&#x8a;&#x9f;¤µ&#x1;&#x10;º&#x93;¹©èþÓÛ÷&#x1;&#x19;&#x0;&#x0;&#x0;èVûÀA2&#xb;&#x8; áÚ&#x8f;&#x2;&#x15;&#x0;&#x0;&#x0;A&#xa;%&#x98;&#x6;É&#x1;Ê&#xc;&#x1e;&#xa;&#xc;11.4.1.15G77&#x12;&#xa;iPhone10,3&#x18;&#x0; &#x0;&#xa;&#xf;&#x98;&#x6;&#x93;&#x3;&#x9a;&#x19;&#x8;&#x8;&#x3;&#x12;&#x2;CN &#x1; &#x6;&#xc;Ò&#x6;0&#x8;&#x10;&#x10;»&#x3;&#x18;&#xa;&#x80;&#x1;ø&#x6;&#x88;&#x1;È&#x1;²&#x1;&#x4;prod¸&#x1;&#x91;&#x85;t&#x92;&#x3;&#x12;17.167.194.230:443&#x81;}ÝAæèVûÀAÀ&gt;°m&#x80;}&#x1;&#xa;à&#x1;²&#x6;Õ&#x1;&#xa;&#x1f;&#x98;&#x6;­&#x2;ê&#x12;&#x18;&#xa;&#xe;com.apple.geod&#x12;&#x3;1.0&#x1a;&#x1;1&#xa;&#x13;&#x98;&#x6;&#x92;&#x3;&#x92;&#x19;&#xc;&#xa;&#xa;zh-Hant-CN&#xa;5&#x98;&#x6;Ù&#x4;Ê%.&#xa;&#x16;&#x8;Þë&#x9d;¬é&#x8a;&#x9f;¤µ&#x1;&#x10;º&#x93;¹©èþÓÛ÷&#x1;&#x19;&#x0;&#x0;&#x0;èVûÀA2&#xb;&#x8; áÚ&#x8f;&#x2;&#x15;&#x0;&#x0;&#x0;A&#xa;%&#x98;&#x6;É&#x1;Ê&#xc;&#x1e;&#xa;&#xc;11.4.1.15G77&#x12;&#xa;iPhone10,3&#x18;&#x0; &#x0;&#xa;&#xf;&#x98;&#x6;&#x93;&#x3;&#x9a;&#x19;&#x8;&#x8;&#x3;&#x12;&#x2;CN &#x1; &#x6;&#xc;&#x82;&#x7; &#x8;&#x1;&#x10;&#x1; þ&#x2;0à]:&#x9;&#x8;&#x7;&#x10;&#x0;&#x18;&#x0; ¼&#x1;:&#x9;&#x8;&#x7;&#x10;&#x0;&#x18;&#x0; ¼&#x1;&#x81;}¿HæèVûÀAÀ&gt;°m&#x80;}" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">zh-Hant-CN_CN&#x0;&#xe;com.apple.geod&#x0;&#xc;11.4.1.15G77&#x0;&#x4;NONE&#x0;&#x0;&#x3;ù&#x0;&#x0;&#x1;Ö
+ð&#x1;²&#x6;å&#x1;
+&#x1f;&#x98;&#x6;­&#x2;ê&#x12;&#x18;
+&#xe;com.apple.geod&#x12;&#x3;1.0&#x1a;&#x1;1
+&#x13;&#x98;&#x6;&#x92;&#x3;&#x92;&#x19;&#xc;
+
+zh-Hant-CN
+5&#x98;&#x6;Ù&#x4;Ê%.
+&#x16;&#x8;Þë&#x9d;¬é&#x8a;&#x9f;¤µ&#x1;&#x10;º&#x93;¹©èþÓÛ÷&#x1;&#x19;&#x0;&#x0;&#x0;èVûÀA2&#xb;&#x8; áÚ&#x8f;&#x2;&#x15;&#x0;&#x0;&#x0;A
+%&#x98;&#x6;É&#x1;Ê&#xc;&#x1e;
+&#xc;11.4.1.15G77&#x12;
+iPhone10,3&#x18;&#x0; &#x0;
+&#xf;&#x98;&#x6;&#x93;&#x3;&#x9a;&#x19;&#x8;&#x8;&#x3;&#x12;&#x2;CN &#x1; &#x6;&#xc;Ò&#x6;0&#x8;&#x10;&#x10;»&#x3;&#x18;
+&#x80;&#x1;ø&#x6;&#x88;&#x1;È&#x1;²&#x1;&#x4;prod¸&#x1;&#x91;&#x85;t&#x92;&#x3;&#x12;17.167.194.230:443&#x81;}ÝAæèVûÀAÀ&gt;°m&#x80;}&#x1;
+à&#x1;²&#x6;Õ&#x1;
+&#x1f;&#x98;&#x6;­&#x2;ê&#x12;&#x18;
+&#xe;com.apple.geod&#x12;&#x3;1.0&#x1a;&#x1;1
+&#x13;&#x98;&#x6;&#x92;&#x3;&#x92;&#x19;&#xc;
+
+zh-Hant-CN
+5&#x98;&#x6;Ù&#x4;Ê%.
+&#x16;&#x8;Þë&#x9d;¬é&#x8a;&#x9f;¤µ&#x1;&#x10;º&#x93;¹©èþÓÛ÷&#x1;&#x19;&#x0;&#x0;&#x0;èVûÀA2&#xb;&#x8; áÚ&#x8f;&#x2;&#x15;&#x0;&#x0;&#x0;A
+%&#x98;&#x6;É&#x1;Ê&#xc;&#x1e;
+&#xc;11.4.1.15G77&#x12;
+iPhone10,3&#x18;&#x0; &#x0;
+&#xf;&#x98;&#x6;&#x93;&#x3;&#x9a;&#x19;&#x8;&#x8;&#x3;&#x12;&#x2;CN &#x1; &#x6;&#xc;&#x82;&#x7; &#x8;&#x1;&#x10;&#x1; þ&#x2;0à]:	&#x8;&#x7;&#x10;&#x0;&#x18;&#x0; ¼&#x1;:	&#x8;&#x7;&#x10;&#x0;&#x18;&#x0; ¼&#x1;&#x81;}¿HæèVûÀAÀ&gt;°m&#x80;}</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">gsp64-ssl.ls.apple.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/hvr/v3/use</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">zh-tw</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">br, gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">geod/1 CFNetwork/902.2 Darwin/17.7.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="482 /hvr/v3/use" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="zh-Hant-CN_CN&#x0;&#xe;com.apple.geod&#x0;&#xc;11.4.1.15G77&#x0;&#x3;LZ4&#x0;&#x0;&#x3;ù&#x0;&#x0;&#x3;\bv41&#x12;&#x12;&#x0;&#x0;L&#x3;&#x0;&#x0;ð¥&#xa;¼&#x1;²&#x6;±&#x1;&#xa;&#x15;&#x98;&#x6;­&#x2;ê&#x12;&#xe;&#xa;&#x4;navd&#x12;&#x3;1.0&#x1a;&#x1;1&#xa;&#x13;&#x98;&#x6;&#x92;&#x3;&#x92;&#x19;&#xc;&#xa;&#xa;zh-Hant-CN&#xa;5&#x98;&#x6;Ù&#x4;Ê%.&#xa;&#x16;&#x8;Þë&#x9d;¬é&#x8a;&#x9f;¤µ&#x1;&#x10;º&#x93;¹©èþÓÛ÷&#x1;&#x19;&#x0;&#x0;&#x0;&#x8c;XûÀA2&#xb;&#x8; áÚ&#x8f;&#x2;&#x15;&#x0;&#x0;&#x0;A&#xa;%&#x98;&#x6;É&#x1;Ê&#xc;&#x1e;&#xa;&#xc;11.4.1.15G77&#x12;&#xa;iPhone10,3&#x18;&#x0; &#x0;&#xa;&#xf;&#x98;&#x6;&#x93;&#x3;&#x9a;&#x19;&#x8;&#x8;&#x3;&#x12;&#x2;CN &#x1; &#x6;&#x7;Ú&#x6;&#x6;&#x8;&#x2;&#x18;&#xb; &#x0;&#x81;}½¨)&#x96;[&#x0;&#x7f;À&gt;à]&#x80;}&#x0;¿&#x0;E&#x10;æd&#x0;&#xf;¿&#x0;;&#x10;&#x6;¿&#x0;@é¹·ù[&#x0;&#x4;¿&#x0;&#x82;Ñ&#x1;²&#x6;Æ&#x1;&#xa;*~&#x1;ó&#x5;#&#xa;&#x12;com.apple.routine&#x8c;&#x1;&#x9f;&#x8;558.0.10&#x93;&#x1;&apos;/&#x4;YÔ&#x0;&gt;&#x10;&#x1;Ô&#x0;@Gr}&#x9;[&#x0;&#x4;Ô&#x0;&#xf;&#x93;&#x1;D&#x10;|d&#x0;&#xf;&#x93;&#x1;;&#x10;&#x4;¿&#x0;@&#x8;&gt; &#x90;[&#x0;&#xf;¿&#x0;L&#x10;&#x9a;d&#x0;&#xf;¿&#x0;;&#x10;&#x2;¿&#x0;@&#x9a;$zµ[&#x0;&#x4;¿&#x0;&#xf;R&#x2;Y&#x10;¸y&#x0;&#xf;Ô&#x0;;&#x1;R&#x2;@&apos;KáË[&#x0;&#x4;Ô&#x0;&#xf;R&#x2;D/0Z¿&#x0;&gt;&#x1;&#x93;&#x1;@£&#x1e;¨2[&#x0;&#xf;¿&#x0;L&quot;j\¿&#x0;/°ýc&#x5;6&#x1;&#x11;&#x3;@\ãõw[&#x0;&#xf;¿&#x0;L/&#x0;]¿&#x0;C@Ù?§&#xe;[&#x0;&#xf;¿&#x0;L&#x10;&#x96;d&#x0;&#xf;~&#x1;;&#x1;ü&#x2;@&#x86;&#x1e;³¤[&#x0;&#xf;¿&#x0;L/,^¿&#x0;&gt;&#x1;á&#x6;@&#x84;&#x82;¶:[&#x0;&#xf;¿&#x0;L/î_¿&#x0;&gt;&#x1;ü&#x2;@Çõ¡þ[&#x0;&#xf;¿&#x0;L/f`¿&#x0;&gt;&#x10;&#x3;¿&#x0;@Înas[&#x0;&#xf;¿&#x0;L&#x10;Àd&#x0;&#xf;ü&#x2;;&#x1;~&#x1;@}&#x97;&#x9e;Ï[&#x0;&#xf;¿&#x0;L/ta¿&#x0;&gt;&#x1;ü&#x2;1¬Éµ[&#x0;&#xf;¿&#x0;L&#x10;°d&#x0;&#xf;~&#x1;;&#x1;·&#x6;@©&#x16;iµ[&#x0;&#xf;¿&#x0;L/&#xa;b¿&#x0;C@gFw$[&#x0;&#xf;¿&#x0;L&#x10; d&#x0;&#xf;~&#x1;;&#x1;ü&#x2;@&#x8d;&#x80;¾º[&#x0;&#xf;¿&#x0;L&quot;&#x90;c¿&#x0;?À&#x99;Û5&#x8;5&#x1;z&#x4;@&#x9e;ÐÅ©[&#x0;&#xf;¿&#x0;L/" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">zh-Hant-CN_CN&#x0;&#xe;com.apple.geod&#x0;&#xc;11.4.1.15G77&#x0;&#x3;LZ4&#x0;&#x0;&#x3;ù&#x0;&#x0;&#x3;\bv41&#x12;&#x12;&#x0;&#x0;L&#x3;&#x0;&#x0;ð¥
+¼&#x1;²&#x6;±&#x1;
+&#x15;&#x98;&#x6;­&#x2;ê&#x12;&#xe;
+&#x4;navd&#x12;&#x3;1.0&#x1a;&#x1;1
+&#x13;&#x98;&#x6;&#x92;&#x3;&#x92;&#x19;&#xc;
+
+zh-Hant-CN
+5&#x98;&#x6;Ù&#x4;Ê%.
+&#x16;&#x8;Þë&#x9d;¬é&#x8a;&#x9f;¤µ&#x1;&#x10;º&#x93;¹©èþÓÛ÷&#x1;&#x19;&#x0;&#x0;&#x0;&#x8c;XûÀA2&#xb;&#x8; áÚ&#x8f;&#x2;&#x15;&#x0;&#x0;&#x0;A
+%&#x98;&#x6;É&#x1;Ê&#xc;&#x1e;
+&#xc;11.4.1.15G77&#x12;
+iPhone10,3&#x18;&#x0; &#x0;
+&#xf;&#x98;&#x6;&#x93;&#x3;&#x9a;&#x19;&#x8;&#x8;&#x3;&#x12;&#x2;CN &#x1; &#x6;&#x7;Ú&#x6;&#x6;&#x8;&#x2;&#x18;&#xb; &#x0;&#x81;}½¨)&#x96;[&#x0;&#x7f;À&gt;à]&#x80;}&#x0;¿&#x0;E&#x10;æd&#x0;&#xf;¿&#x0;;&#x10;&#x6;¿&#x0;@é¹·ù[&#x0;&#x4;¿&#x0;&#x82;Ñ&#x1;²&#x6;Æ&#x1;
+*~&#x1;ó&#x5;#
+&#x12;com.apple.routine&#x8c;&#x1;&#x9f;&#x8;558.0.10&#x93;&#x1;&apos;/&#x4;YÔ&#x0;&gt;&#x10;&#x1;Ô&#x0;@Gr}	[&#x0;&#x4;Ô&#x0;&#xf;&#x93;&#x1;D&#x10;|d&#x0;&#xf;&#x93;&#x1;;&#x10;&#x4;¿&#x0;@&#x8;&gt; &#x90;[&#x0;&#xf;¿&#x0;L&#x10;&#x9a;d&#x0;&#xf;¿&#x0;;&#x10;&#x2;¿&#x0;@&#x9a;$zµ[&#x0;&#x4;¿&#x0;&#xf;R&#x2;Y&#x10;¸y&#x0;&#xf;Ô&#x0;;&#x1;R&#x2;@&apos;KáË[&#x0;&#x4;Ô&#x0;&#xf;R&#x2;D/0Z¿&#x0;&gt;&#x1;&#x93;&#x1;@£&#x1e;¨2[&#x0;&#xf;¿&#x0;L&quot;j\¿&#x0;/°ýc&#x5;6&#x1;&#x11;&#x3;@\ãõw[&#x0;&#xf;¿&#x0;L/&#x0;]¿&#x0;C@Ù?§&#xe;[&#x0;&#xf;¿&#x0;L&#x10;&#x96;d&#x0;&#xf;~&#x1;;&#x1;ü&#x2;@&#x86;&#x1e;³¤[&#x0;&#xf;¿&#x0;L/,^¿&#x0;&gt;&#x1;á&#x6;@&#x84;&#x82;¶:[&#x0;&#xf;¿&#x0;L/î_¿&#x0;&gt;&#x1;ü&#x2;@Çõ¡þ[&#x0;&#xf;¿&#x0;L/f`¿&#x0;&gt;&#x10;&#x3;¿&#x0;@Înas[&#x0;&#xf;¿&#x0;L&#x10;Àd&#x0;&#xf;ü&#x2;;&#x1;~&#x1;@}&#x97;&#x9e;Ï[&#x0;&#xf;¿&#x0;L/ta¿&#x0;&gt;&#x1;ü&#x2;1¬Éµ[&#x0;&#xf;¿&#x0;L&#x10;°d&#x0;&#xf;~&#x1;;&#x1;·&#x6;@©&#x16;iµ[&#x0;&#xf;¿&#x0;L/
+b¿&#x0;C@gFw$[&#x0;&#xf;¿&#x0;L&#x10; d&#x0;&#xf;~&#x1;;&#x1;ü&#x2;@&#x8d;&#x80;¾º[&#x0;&#xf;¿&#x0;L&quot;&#x90;c¿&#x0;?À&#x99;Û5&#x8;5&#x1;z&#x4;@&#x9e;ÐÅ©[&#x0;&#xf;¿&#x0;L/</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata"></stringProp>
+              </elementProp>
+              <elementProp name="d¿&#x0;&gt;&#x1;~&#x1;@0õ&#x83;@[&#x0;&#xf;¿&#x0;L&#x10;bd&#x0;&#xf;~&#x1;;&#x1;»&#x3;@ç©&#x90;k[&#x0;&#xf;¿&#x0;L&#x10;ød&#x0;&#xf;¿&#x0;;&#x1;~&#x1;_&#x18;ÎK&#x2;eÕ&#xf;O&#x10;&#x8e;d&#x0;&#xf;¿&#x0;;&#x1;~&#x1;@¤&#x89;&#x91;&#x93;[&#x0;&#xf;~&#x1;9ðk&#x9f;¤µ&#x1;&#x10;º&#x93;¹©èþÓÛ÷&#x1;&#x19;&#x0;&#x0;&#x0;0iûÀA2&#xb;&#x8;À&#x99;Û&#x8f;&#x2;&#x15;&#x0;&#x0;&#x0;A&#xa;%&#x98;&#x6;É&#x1;Ê&#xc;&#x1e;&#xa;&#xc;11.4.1.15G77&#x12;&#xa;iPhone10,3&#x18;&#x0; &#x0;&#xa;&#xf;&#x98;&#x6;&#x93;&#x3;&#x9a;&#x19;&#x8;&#x8;&#x3;&#x12;&#x2;CN &#x1; &#x6;&#x7;Ú&#x6;&#x6;&#x8;&#x2;&#x18;&#xc; &#x0;&#x81;}&#x84;&#x9a;a5iûÀAÀ&gt;à]&#x80;}&#x0;bv4$" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">d¿&#x0;&gt;&#x1;~&#x1;@0õ&#x83;@[&#x0;&#xf;¿&#x0;L&#x10;bd&#x0;&#xf;~&#x1;;&#x1;»&#x3;@ç©&#x90;k[&#x0;&#xf;¿&#x0;L&#x10;ød&#x0;&#xf;¿&#x0;;&#x1;~&#x1;_&#x18;ÎK&#x2;eÕ&#xf;O&#x10;&#x8e;d&#x0;&#xf;¿&#x0;;&#x1;~&#x1;@¤&#x89;&#x91;&#x93;[&#x0;&#xf;~&#x1;9ðk&#x9f;¤µ&#x1;&#x10;º&#x93;¹©èþÓÛ÷&#x1;&#x19;&#x0;&#x0;&#x0;0iûÀA2&#xb;&#x8;À&#x99;Û&#x8f;&#x2;&#x15;&#x0;&#x0;&#x0;A
+%&#x98;&#x6;É&#x1;Ê&#xc;&#x1e;
+&#xc;11.4.1.15G77&#x12;
+iPhone10,3&#x18;&#x0; &#x0;
+&#xf;&#x98;&#x6;&#x93;&#x3;&#x9a;&#x19;&#x8;&#x8;&#x3;&#x12;&#x2;CN &#x1; &#x6;&#x7;Ú&#x6;&#x6;&#x8;&#x2;&#x18;&#xc; &#x0;&#x81;}&#x84;&#x9a;a5iûÀAÀ&gt;à]&#x80;}&#x0;bv4$</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">gsp64-ssl.ls.apple.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/hvr/v3/use</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">zh-tw</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">br, gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">geod/1 CFNetwork/902.2 Darwin/17.7.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="483 /bag" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">init-p01st.push.apple.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bag</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">zh-tw</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">iPhone10,3/11.4.1 (15G77)</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="484 /hvr/v3/use" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="zh-Hant-CN_CN&#x0;&#xe;com.apple.geod&#x0;&#xc;11.4.1.15G77&#x0;&#x3;LZ4&#x0;&#x0;&#x3;ù&#x0;&#x0;&#x3;qbv41Ñ&#x12;&#x0;&#x0;a&#x3;&#x0;&#x0;ð¥&#xa;¼&#x1;²&#x6;±&#x1;&#xa;&#x15;&#x98;&#x6;­&#x2;ê&#x12;&#xe;&#xa;&#x4;navd&#x12;&#x3;1.0&#x1a;&#x1;1&#xa;&#x13;&#x98;&#x6;&#x92;&#x3;&#x92;&#x19;&#xc;&#xa;&#xa;zh-Hant-CN&#xa;5&#x98;&#x6;Ù&#x4;Ê%.&#xa;&#x16;&#x8;Þë&#x9d;¬é&#x8a;&#x9f;¤µ&#x1;&#x10;º&#x93;¹©èþÓÛ÷&#x1;&#x19;&#x0;&#x0;&#x0;&#x8c;XûÀA2&#xb;&#x8; áÚ&#x8f;&#x2;&#x15;&#x0;&#x0;&#x0;A&#xa;%&#x98;&#x6;É&#x1;Ê&#xc;&#x1e;&#xa;&#xc;11.4.1.15G77&#x12;&#xa;iPhone10,3&#x18;&#x0; &#x0;&#xa;&#xf;&#x98;&#x6;&#x93;&#x3;&#x9a;&#x19;&#x8;&#x8;&#x3;&#x12;&#x2;CN &#x1; &#x6;&#x7;Ú&#x6;&#x6;&#x8;&#x2;&#x18;&#xb; &#x0;&#x81;}½¨)&#x96;[&#x0;&#x7f;À&gt;à]&#x80;}&#x1;¿&#x0;E&#x10;æd&#x0;&#xf;¿&#x0;;&#x10;&#x6;¿&#x0;@é¹·ù[&#x0;&#x4;¿&#x0;&#x82;Ñ&#x1;²&#x6;Æ&#x1;&#xa;*~&#x1;ó&#x5;#&#xa;&#x12;com.apple.routine&#x8c;&#x1;&#x9f;&#x8;558.0.10&#x93;&#x1;&apos;/&#x4;YÔ&#x0;&gt;&#x10;&#x1;Ô&#x0;@Gr}&#x9;[&#x0;&#x4;Ô&#x0;&#xf;&#x93;&#x1;D&#x10;|d&#x0;&#xf;&#x93;&#x1;;&#x10;&#x4;¿&#x0;@&#x8;&gt; &#x90;[&#x0;&#xf;¿&#x0;L&#x10;&#x9a;d&#x0;&#xf;¿&#x0;;&#x10;&#x2;¿&#x0;@&#x9a;$zµ[&#x0;&#x4;¿&#x0;&#xf;R&#x2;Y&#x10;¸y&#x0;&#xf;Ô&#x0;;&#x1;R&#x2;@&apos;KáË[&#x0;&#x4;Ô&#x0;&#xf;R&#x2;D/0Z¿&#x0;&gt;&#x1;&#x93;&#x1;@£&#x1e;¨2[&#x0;&#xf;¿&#x0;L&quot;j\¿&#x0;/°ýc&#x5;6&#x1;&#x11;&#x3;@\ãõw[&#x0;&#xf;¿&#x0;L/&#x0;]¿&#x0;C@Ù?§&#xe;[&#x0;&#xf;¿&#x0;L&#x10;&#x96;d&#x0;&#xf;~&#x1;;&#x1;ü&#x2;@&#x86;&#x1e;³¤[&#x0;&#xf;¿&#x0;L/,^¿&#x0;&gt;&#x1;á&#x6;@&#x84;&#x82;¶:[&#x0;&#xf;¿&#x0;L/î_¿&#x0;&gt;&#x1;ü&#x2;@Çõ¡þ[&#x0;&#xf;¿&#x0;L/f`¿&#x0;&gt;&#x10;&#x3;¿&#x0;@Înas[&#x0;&#xf;¿&#x0;L&#x10;Àd&#x0;&#xf;ü&#x2;;&#x1;~&#x1;@}&#x97;&#x9e;Ï[&#x0;&#xf;¿&#x0;L/ta¿&#x0;&gt;&#x1;ü&#x2;1¬Éµ[&#x0;&#xf;¿&#x0;L&#x10;°d&#x0;&#xf;~&#x1;;&#x1;·&#x6;@©&#x16;iµ[&#x0;&#xf;¿&#x0;L/&#xa;b¿&#x0;C@gFw$[&#x0;&#xf;¿&#x0;L&#x10; d&#x0;&#xf;~&#x1;;&#x1;ü&#x2;@&#x8d;&#x80;¾º[&#x0;&#xf;¿&#x0;L&quot;&#x90;c¿&#x0;?À&#x99;Û5&#x8;5&#x1;z&#x4;@&#x9e;ÐÅ©[&#x0;&#xf;¿&#x0;L/" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">zh-Hant-CN_CN&#x0;&#xe;com.apple.geod&#x0;&#xc;11.4.1.15G77&#x0;&#x3;LZ4&#x0;&#x0;&#x3;ù&#x0;&#x0;&#x3;qbv41Ñ&#x12;&#x0;&#x0;a&#x3;&#x0;&#x0;ð¥
+¼&#x1;²&#x6;±&#x1;
+&#x15;&#x98;&#x6;­&#x2;ê&#x12;&#xe;
+&#x4;navd&#x12;&#x3;1.0&#x1a;&#x1;1
+&#x13;&#x98;&#x6;&#x92;&#x3;&#x92;&#x19;&#xc;
+
+zh-Hant-CN
+5&#x98;&#x6;Ù&#x4;Ê%.
+&#x16;&#x8;Þë&#x9d;¬é&#x8a;&#x9f;¤µ&#x1;&#x10;º&#x93;¹©èþÓÛ÷&#x1;&#x19;&#x0;&#x0;&#x0;&#x8c;XûÀA2&#xb;&#x8; áÚ&#x8f;&#x2;&#x15;&#x0;&#x0;&#x0;A
+%&#x98;&#x6;É&#x1;Ê&#xc;&#x1e;
+&#xc;11.4.1.15G77&#x12;
+iPhone10,3&#x18;&#x0; &#x0;
+&#xf;&#x98;&#x6;&#x93;&#x3;&#x9a;&#x19;&#x8;&#x8;&#x3;&#x12;&#x2;CN &#x1; &#x6;&#x7;Ú&#x6;&#x6;&#x8;&#x2;&#x18;&#xb; &#x0;&#x81;}½¨)&#x96;[&#x0;&#x7f;À&gt;à]&#x80;}&#x1;¿&#x0;E&#x10;æd&#x0;&#xf;¿&#x0;;&#x10;&#x6;¿&#x0;@é¹·ù[&#x0;&#x4;¿&#x0;&#x82;Ñ&#x1;²&#x6;Æ&#x1;
+*~&#x1;ó&#x5;#
+&#x12;com.apple.routine&#x8c;&#x1;&#x9f;&#x8;558.0.10&#x93;&#x1;&apos;/&#x4;YÔ&#x0;&gt;&#x10;&#x1;Ô&#x0;@Gr}	[&#x0;&#x4;Ô&#x0;&#xf;&#x93;&#x1;D&#x10;|d&#x0;&#xf;&#x93;&#x1;;&#x10;&#x4;¿&#x0;@&#x8;&gt; &#x90;[&#x0;&#xf;¿&#x0;L&#x10;&#x9a;d&#x0;&#xf;¿&#x0;;&#x10;&#x2;¿&#x0;@&#x9a;$zµ[&#x0;&#x4;¿&#x0;&#xf;R&#x2;Y&#x10;¸y&#x0;&#xf;Ô&#x0;;&#x1;R&#x2;@&apos;KáË[&#x0;&#x4;Ô&#x0;&#xf;R&#x2;D/0Z¿&#x0;&gt;&#x1;&#x93;&#x1;@£&#x1e;¨2[&#x0;&#xf;¿&#x0;L&quot;j\¿&#x0;/°ýc&#x5;6&#x1;&#x11;&#x3;@\ãõw[&#x0;&#xf;¿&#x0;L/&#x0;]¿&#x0;C@Ù?§&#xe;[&#x0;&#xf;¿&#x0;L&#x10;&#x96;d&#x0;&#xf;~&#x1;;&#x1;ü&#x2;@&#x86;&#x1e;³¤[&#x0;&#xf;¿&#x0;L/,^¿&#x0;&gt;&#x1;á&#x6;@&#x84;&#x82;¶:[&#x0;&#xf;¿&#x0;L/î_¿&#x0;&gt;&#x1;ü&#x2;@Çõ¡þ[&#x0;&#xf;¿&#x0;L/f`¿&#x0;&gt;&#x10;&#x3;¿&#x0;@Înas[&#x0;&#xf;¿&#x0;L&#x10;Àd&#x0;&#xf;ü&#x2;;&#x1;~&#x1;@}&#x97;&#x9e;Ï[&#x0;&#xf;¿&#x0;L/ta¿&#x0;&gt;&#x1;ü&#x2;1¬Éµ[&#x0;&#xf;¿&#x0;L&#x10;°d&#x0;&#xf;~&#x1;;&#x1;·&#x6;@©&#x16;iµ[&#x0;&#xf;¿&#x0;L/
+b¿&#x0;C@gFw$[&#x0;&#xf;¿&#x0;L&#x10; d&#x0;&#xf;~&#x1;;&#x1;ü&#x2;@&#x8d;&#x80;¾º[&#x0;&#xf;¿&#x0;L&quot;&#x90;c¿&#x0;?À&#x99;Û5&#x8;5&#x1;z&#x4;@&#x9e;ÐÅ©[&#x0;&#xf;¿&#x0;L/</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata"></stringProp>
+              </elementProp>
+              <elementProp name="d¿&#x0;&gt;&#x1;~&#x1;@0õ&#x83;@[&#x0;&#xf;¿&#x0;L&#x10;bd&#x0;&#xf;~&#x1;;&#x1;»&#x3;@ç©&#x90;k[&#x0;&#xf;¿&#x0;L&#x10;ød&#x0;&#xf;¿&#x0;;&#x1;~&#x1;_&#x18;ÎK&#x2;eÕ&#xf;O&#x10;&#x8e;d&#x0;&#xf;¿&#x0;;&#x1;~&#x1;@¤&#x89;&#x91;&#x93;[&#x0;&#xf;~&#x1;L/0i¿&#x0;&gt;&#x10;&#xc;¿&#x0;@&#x84;&#x9a;a5[&#x0;&#xf;¿&#x0;9ðk&#x9f;¤µ&#x1;&#x10;º&#x93;¹©èþÓÛ÷&#x1;&#x19;&#x0;&#x0;&#x0;°pûÀA2&#xb;&#x8;ÐµÛ&#x8f;&#x2;&#x15;&#x0;&#x0;&#x0;A&#xa;%&#x98;&#x6;É&#x1;Ê&#xc;&#x1e;&#xa;&#xc;11.4.1.15G77&#x12;&#xa;iPhone10,3&#x18;&#x0; &#x0;&#xa;&#xf;&#x98;&#x6;&#x93;&#x3;&#x9a;&#x19;&#x8;&#x8;&#x3;&#x12;&#x2;CN &#x1; &#x6;&#x7;Ú&#x6;&#x6;&#x8;&#x2;&#x18;&#xb; &#x0;&#x81;}&#x93;&#x8a;ð¿pûÀAÀ&gt;à]&#x80;}&#x0;bv4$" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">d¿&#x0;&gt;&#x1;~&#x1;@0õ&#x83;@[&#x0;&#xf;¿&#x0;L&#x10;bd&#x0;&#xf;~&#x1;;&#x1;»&#x3;@ç©&#x90;k[&#x0;&#xf;¿&#x0;L&#x10;ød&#x0;&#xf;¿&#x0;;&#x1;~&#x1;_&#x18;ÎK&#x2;eÕ&#xf;O&#x10;&#x8e;d&#x0;&#xf;¿&#x0;;&#x1;~&#x1;@¤&#x89;&#x91;&#x93;[&#x0;&#xf;~&#x1;L/0i¿&#x0;&gt;&#x10;&#xc;¿&#x0;@&#x84;&#x9a;a5[&#x0;&#xf;¿&#x0;9ðk&#x9f;¤µ&#x1;&#x10;º&#x93;¹©èþÓÛ÷&#x1;&#x19;&#x0;&#x0;&#x0;°pûÀA2&#xb;&#x8;ÐµÛ&#x8f;&#x2;&#x15;&#x0;&#x0;&#x0;A
+%&#x98;&#x6;É&#x1;Ê&#xc;&#x1e;
+&#xc;11.4.1.15G77&#x12;
+iPhone10,3&#x18;&#x0; &#x0;
+&#xf;&#x98;&#x6;&#x93;&#x3;&#x9a;&#x19;&#x8;&#x8;&#x3;&#x12;&#x2;CN &#x1; &#x6;&#x7;Ú&#x6;&#x6;&#x8;&#x2;&#x18;&#xb; &#x0;&#x81;}&#x93;&#x8a;ð¿pûÀAÀ&gt;à]&#x80;}&#x0;bv4$</stringProp>
+                <stringProp name="Argument.value"></stringProp>
+                <stringProp name="Argument.metadata"></stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">gsp64-ssl.ls.apple.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/hvr/v3/use</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">zh-tw</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">br, gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">geod/1 CFNetwork/902.2 Darwin/17.7.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="485 /bag" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">init-p01st.push.apple.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/bag</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">zh-tw</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">iPhone10,3/11.4.1 (15G77)</stringProp>
               </elementProp>
             </collectionProp>
           </HeaderManager>
