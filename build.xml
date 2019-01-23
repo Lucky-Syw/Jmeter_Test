@@ -60,7 +60,7 @@
      <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
         <!-- 声明要运行的脚本。"*.jmx"指包含此目录下的所有jmeter脚本-->
          <!-- <testplans dir="/Users/iber/Test_group/jmeter/apache-jmeter-3.3/TestScrip_Lucky" includes="20_Interface_New.jmx”/>-->
-         <testplans dir="/Users/iber/Desktop/jenkins/workspace/Jmeter_Test_Git/Script" includes="20_Interface_New.jmx" />
+         <testplans dir="/Users/iber/Desktop/jenkins/workspace/Jmeter_Test_Git" includes="20_Interface_New.jmx" />
          <property name="jmeter.save.saveservice.output_format" value="xml"/>
      </jmeter>
  </target>
