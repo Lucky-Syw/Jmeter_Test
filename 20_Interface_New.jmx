@@ -2779,7 +2779,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="资讯" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="资讯" enabled="false"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【资讯】资讯主页 /v2/article/home-list" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
