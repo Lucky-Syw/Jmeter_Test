@@ -29,4 +29,6 @@ https://github.com/Lucky-Syw/Jmeter_Test
 
 3、20_Interface_New.jmx 定义的脚本名称不可随意更改，更改后需要修改build.xml文件
 
+4、脚本的录制不可使用“事务控制器”否则Jenkins的运行将会停止在“事务控制器”的接口前，不会继续执行。
+
 
