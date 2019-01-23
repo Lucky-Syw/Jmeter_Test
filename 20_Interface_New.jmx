@@ -7100,7 +7100,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
           </HTTPSamplerProxy>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="行动计划" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="行动计划" enabled="false"/>
         <hashTree>
           <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments">
@@ -8301,7 +8301,7 @@ select DATE_FORMAT(now(),&apos;%Y-%m-%d %h:%m&apos;);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="注册登录---暂不启用" enabled="true"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="注册登录---暂不启用" enabled="false"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="哈哈哈哈 /v2/user/register" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
