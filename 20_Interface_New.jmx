@@ -7098,7 +7098,7 @@ select DATE_FORMAT(now(),&apos;%Y-%m-%d %h:%m&apos;);</stringProp>
                   <elementProp name="c_user_uuid" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.name">c_user_uuid</stringProp>
-                    <stringProp name="Argument.value">${uid}</stringProp>
+                    <stringProp name="Argument.value">${c_user_uuid}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   </elementProp>
