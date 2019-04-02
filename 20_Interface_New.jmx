@@ -1278,7 +1278,7 @@ vars.put(&quot;sign&quot;,result);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="个人主页" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="个人主页" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【个人主页】个人主页模板列表 /v2/user/home-page-templates" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -1409,7 +1409,7 @@ vars.put(&quot;sign&quot;,result);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="个人信息" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="个人信息" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="132 /v2/user/user-info" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -1753,7 +1753,7 @@ vars.put(&quot;sign&quot;,result);</stringProp>
           </HTTPSamplerProxy>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="我的管理" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="我的管理" enabled="true"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="文章管理" enabled="true"/>
           <hashTree>
@@ -2361,7 +2361,7 @@ vars.put(&quot;sign&quot;,result);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="意见反馈" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="意见反馈" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【意见反馈】反馈内容 /feedback/suggest" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -2416,7 +2416,7 @@ vars.put(&quot;sign&quot;,result);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="商务合作" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="商务合作" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【商务合作】提交内容 /feedback/cooperation" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -2464,7 +2464,7 @@ vars.put(&quot;sign&quot;,result);</stringProp>
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="媒体报道" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="媒体报道" enabled="true"/>
         <hashTree>
           <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="【媒体报道】 JDBC Request" enabled="true">
             <stringProp name="dataSource">iber_php</stringProp>
@@ -2553,7 +2553,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="关于iBer" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="关于iBer" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【关于iBer 】进入关于iBer的首页 /my/about" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -2616,7 +2616,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="关联我的社交媒体" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="关联我的社交媒体" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="上传微信QR Code /user/save-wechat-qrcode" enabled="false">
             <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
@@ -2774,7 +2774,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="帮助中心" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="帮助中心" enabled="true"/>
         <hashTree>
           <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="【接口项目】HTTP请求默认值" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="使用者自訂變數" enabled="true">
@@ -2847,7 +2847,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
           </HTTPSamplerProxy>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="设置" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="设置" enabled="true"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="账号与安全" enabled="true"/>
           <hashTree>
@@ -3051,7 +3051,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="圈子" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="圈子" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【圈子】获取所有圈子用户 /v2/custom/get-customer-all" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -4692,7 +4692,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="培训" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="培训" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【培训】 课程首页/v2/training/index" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -4896,7 +4896,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="动态" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="动态" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【动态】获取七日统计数据 /v2/c-user-action-log/get-sev-data" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -5145,7 +5145,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="应用" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="应用" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【应用】工作台列表 /v2/workbench/index" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -5262,7 +5262,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="圈助手" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="圈助手" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【圈助手】助手分类列表 /v2/weixin-helper/cate-list" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -6113,7 +6113,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
           </HTTPSamplerProxy>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="海报" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="海报" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【海报】类型列表 /v2/poster/type" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -6208,7 +6208,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="评测" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="评测" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【评测】获取转发列表 /v2/evaluate/forwarding-list" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -6434,7 +6434,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="贺卡" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="贺卡" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【贺卡】分类列表 /v2/greeting-card/type-list" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -6623,7 +6623,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="搜索" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="搜索" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【搜索】全局搜索 /v2/search/global" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -6679,7 +6679,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="讯息" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="讯息" enabled="true"/>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="【讯息】讯息列表/v2/message/list" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -6825,7 +6825,7 @@ select mcl.media_coverage_uuid from `media_coverage_lang` mcl join `media_covera
             <hashTree/>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="行动计划" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="行动计划" enabled="true"/>
         <hashTree>
           <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
             <collectionProp name="Arguments.arguments">
@@ -7600,7 +7600,7 @@ select DATE_FORMAT(now(),&apos;%Y-%m-%d %h:%m&apos;);</stringProp>
             </hashTree>
           </hashTree>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="行动报告" enabled="false"/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="行动报告" enabled="true"/>
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="H5的页面" enabled="true"/>
           <hashTree>
